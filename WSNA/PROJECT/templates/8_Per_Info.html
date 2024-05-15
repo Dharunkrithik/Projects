@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+                *{
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                }
+
+                section{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 200vh;
+                    width: 100%;
+
+                    background: rgb(105, 155, 179);
+                }
+
+                .content{
+                    display: flex;
+                    flex-direction: row;
+                    width: 750px;
+                    height: 660px;
+                    border-radius: 10px;
+
+                    background: #fff;
+                }
+
+                .left{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 250px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+
+                    background: url("/static/images/D4.jpg");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+
+                }
+
+                .left img{
+                    width: 100px;
+                }
+
+                .left h1{
+                    margin-top: 10px;
+                    font-size: 3em;
+                    font-weight: 100;
+                    font-family: 'Bebas Neue', sans-serif;
+                    color: #fff;
+                }
+
+                .right{
+                    margin: 20px auto;
+                    padding: 10px;
+                }
+
+                .inputbox{
+                    margin: 8px 0px;
+                    width: 350px;
+                    height: fit-content;
+                }
+
+                input {
+                    margin-top: 4px;
+                    padding: 5px;
+                    width: 100%;
+                    height: 28px;
+                    text-indent: 9px;
+                    border: none;
+                    border-radius: 2px;
+
+                    background: rgb(119, 175, 184);
+                }
+
+                input:hover{
+                    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+                }
+
+                .right .title h2{
+                    text-align: center;
+                    font-size: 1.8em;
+                    margin-bottom: 20px;
+                }
+
+                .inputbox label{
+                    font-size: 1em;
+                }
+
+                input::placeholder{
+                    text-indent: 10px;
+                }
+
+                .create{
+                    display: flex;
+                    justify-content: center;
+                    width: 360px;
+                }
+
+                .create button{
+                    margin-top: 5px;
+                    width: 250px;
+                    height: 35px;
+                    border: none;
+                    border-radius: 25px;
+
+                    color: #fff;
+                    background: #000;
+                }
+
+                .additional p{
+                    margin-top: 5px;
+                    font-size: 11px;
+                    text-align: center;
+                }
+
+                .additional p span{
+                    color: blue;
+                }
+
+                .additional p span:hover{
+                    text-decoration: underline;
+                }
+
+                .or{
+                    margin-top: 10px;
+                    font-size: 1em;
+                    text-align: center;
+                }
+
+                .sign{
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 15px;
+                }
+
+                button{
+                    width: 160px;
+                    height: 35px;
+                    padding: 5px;
+                    border-radius: 25px;
+
+                    background: none;
+                    border: 2px solid #000;
+                }
+                /* Responsiveness:Start */
+                @media screen and (max-width:780px) {
+                    .content{
+                        flex-direction: column;
+                        width: 400px;
+                        height: fit-content;
+                        margin: 20px auto;
+                    }
+                    .left{
+                        height: 250px;
+                        width: 100%;
+                        border-radius: 0px;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                    }
+                }
+                @media screen and (max-width:425px) {
+                    .content{
+                        width: 100%;
+                        margin: 0px;
+                        border-radius: 0px;
+                    }
+                    .left{
+                        width: 100%;
+                        border-radius: 0px;
+                    }
+                }
+                /* Responsiveness:End */
+
+
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="content">
+
+            <div class="left">
+                <img src="https://i.postimg.cc/8CCmX23W/icon.png" alt="icon">
+                <h1>INFO</h1>
+            </div>
+
+            <div class="right">
+                <div class="title">
+                    <h2>PERSONAL INFORMATIONS</h2>
+                </div>
+                <div class="form">
+                    <form method='POST' action="{% url 'Per_Info_8' %}">
+                    {% csrf_token %}
+                        <div class="inputbox">
+                            <label>FIRST_NAME</label>
+                            <input type="text" name="firstname" placeholder="firstname" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>LAST_NAME</label>
+                            <input type="text" name="lastname" placeholder="lastname" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>AGE</label>
+                            <input type="number" name="age" placeholder="age" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>ADDRESS</label>
+                            <input type="text" name="address" placeholder="address" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>PHONE</label>
+                            <input type="number" name="phone" placeholder="phone" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>CITY</label>
+                            <input type="text" name="city" placeholder="city" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>STATE</label>
+                            <input type="text" name="state" placeholder="state" required>
+                        </div>
+
+                        <div class="inputbox">
+                            <label>COUNTRY</label>
+                            <input type="text" name="country" placeholder="country" required>
+                        </div><br><br><br>
+                        
+                        <div class="create">
+                            <button type="submit">REGISTER PER_INFO</button>
+                        </div><br><br><br>
+
+
+                    </form>
+                    <div class="or">
+                        <div class="sign">
+                            <button><ion-icon name="logo-google"></ion-icon><a href="{% url 'Home_4' %}" style="color:red;"><span><b>GO TO HOME PAGE</b></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    
+</body>
+</html>
